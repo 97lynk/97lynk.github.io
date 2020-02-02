@@ -1,16 +1,34 @@
 ---
 layout: post
-title: Hello World!
-categories: [general, setup, demo]
-tags: [demo, dbyll, dbtek, setup]
+title: Vault with docker
+categories: [cloud]
+tags: [postgres, cloud, docker, vault, hashicorp]
 fullview: true
-comments: true
+comments: false
 ---
 
-**dbyll** is minimalist, stylish theme for jekyll. Supports gravatar, account links (github, twitter, e-mail, pinterest, résume file) and a bio.  
+# 1. Run Vault docker
+```
+docker run --cap-add=IPC_LOCK\
+	-e 'VAULT_DEV_ROOT_TOKEN_ID=myroot'\
+	-e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200'\
+	-e 'VAULT_ADDR=http://127.0.0.1:8200'\
+	-e 'VAULT_TOKEN=myroot'\
+	-p 8200:8200\
+	--name vaul-container\
+    vault
+```
+Testing at http://localhost:8200/ui
 
-**dbyll** is brought to you by **[dbtek](http://ismaildemirbilek.com)**. Open sourced under [MIT](http://opensource.org/licenses/MIT) license.
+# 2. Run Postgres docker
+```
+docker run -d --name postgres\
+    -p 5432:5432\
+    -e POSTGRES_PASSWORD=postgres123456\
+    -e POSTGRES_USER=postgres \
+    postgres
+```
 
-### dbyll is on GitHub
+# 2. Integration With a Postgres Database
+![SignIn](/assets/media/signin-vault-ui.png)
 
-<a class="btn btn-default" href="https://github.com/dbtek/dbyll">Grab your copy now!</a>
