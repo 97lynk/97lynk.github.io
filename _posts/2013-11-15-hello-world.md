@@ -18,7 +18,7 @@ docker run --cap-add=IPC_LOCK\
 	--name vaul-container\
     vault
 ```
-Testing at [http://localhost:8200/ui](http://localhost:8200/ui)
+Testing at <a href="http://localhost:8200/ui" target="_blank">http://localhost:8200/ui</a>
 
 # 2. Run Postgres docker
 ```
