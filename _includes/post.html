@@ -5,6 +5,7 @@
 <article>
 
 	<div class="col-sm-10">
+	{{ page.date }} {{ page.time }}
 	 <span class="post-date">
 	   {% assign d = page.date | date: "%d" | plus:'0' %}
 	   {{ page.date | date: "%B" }} 
