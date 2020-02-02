@@ -1,34 +1,23 @@
 ---
 layout: post
-title: Vault with docker
-categories: [cloud]
-tags: [postgres, cloud, docker, vault, hashicorp]
-description: Using Vault to manage Postgres's credential
-comments: false
+title: Configuration
+categories: [general, setup, demo]
+tags: [demo, dbyll, dbtek, setup]
+fullview: true
 ---
 
-# 1. Run Vault docker
-```
-docker run --cap-add=IPC_LOCK\
-	-e 'VAULT_DEV_ROOT_TOKEN_ID=myroot'\
-	-e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200'\
-	-e 'VAULT_ADDR=http://127.0.0.1:8200'\
-	-e 'VAULT_TOKEN=myroot'\
-	-p 8200:8200\
-	--name vaul-container\
-    vault
-```
-Testing at <a href="http://localhost:8200/ui" target="_blank">http://localhost:8200/ui</a>
+In your config file change these settings
 
-# 2. Run Postgres docker
-```
-docker run -d --name postgres\
-    -p 5432:5432\
-    -e POSTGRES_PASSWORD=postgres123456\
-    -e POSTGRES_USER=postgres \
-    postgres
-```
-
-# 3. Integration With a Postgres Database
-![SignIn](/assets/media/signin-vault-ui.png)
-
+{% highlight yaml %}
+title: dbyll
+author:  
+  name: yourname  
+  email: youremail  
+  github: asd123  
+  twitter: asd123  
+  pinterest: asd123  
+  linkedin: asd123  
+  resume: asd123  
+  bio: Your stylish,  minimalist theme!  
+  email_md5: md5ofemail  
+{% endhighlight %}
