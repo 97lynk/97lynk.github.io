@@ -3,7 +3,7 @@ layout: post
 title: Vault with docker
 categories: [cloud]
 tags: [postgres, cloud, docker, vault, hashicorp]
-fullview: true
+description: Using Vault to manage Postgres's credential
 comments: false
 ---
 
@@ -18,7 +18,7 @@ docker run --cap-add=IPC_LOCK\
 	--name vaul-container\
     vault
 ```
-Testing at http://localhost:8200/ui
+Testing at [http://localhost:8200/ui](http://localhost:8200/ui)
 
 # 2. Run Postgres docker
 ```
@@ -29,6 +29,6 @@ docker run -d --name postgres\
     postgres
 ```
 
-# 2. Integration With a Postgres Database
+# 3. Integration With a Postgres Database
 ![SignIn](/assets/media/signin-vault-ui.png)
 
