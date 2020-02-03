@@ -16,15 +16,15 @@ defaults:
     values:
       title: dbyll
 
-description: Stylish Jekyll Theme
+description: Blog about Spring, Microservices, Java, Containers and more
 author:
-  name: dbyll
-  email: dbyll@ismaildemirbilek.com
-  github: dbtek
-  twitter: dbtek
+  name: 97lynk
+  email: 97lynk@gmail.com
+  github: 97lynk
+  twitter: asd123
   pinterest: asd123
   linkedin: asd123
-  bio: Your stylish, minimalist theme!
+  bio: =))
   email_md5: 726351295ec82e145928582f595aa3aa
 
 rss_path: feed.xml
