@@ -10,9 +10,9 @@ tagline:
   <h2>
     <a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
   </h2>
-  <div>
+  <div style="color: #999;">
     <span>Posted on </span>
-    <span style="color: #999;">
+    <span>
       {% assign d = post.date | date: "%d" | plus:'0' %}
       {{ post.date | date: "%B" }}
       {% case d %}
@@ -24,7 +24,7 @@ tagline:
       {{ post.date | date: "%Y" }}
     </span>
   </div>
-  
+
   <div>
     {% if post.fullview %}
     {{ post.content }}
