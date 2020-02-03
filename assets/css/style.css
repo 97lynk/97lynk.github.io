@@ -174,11 +174,12 @@ footer {
 
 /* nav-horizontal-tabs component */
 .nav-tabs-horizontal {
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
 }
 
 .nav-tabs-horizontal li {
-    margin-right: -1px;
+	margin-right: -1px;
+	border-bottom: 1px solid #ddd;
 }
 
 .nav-tabs-horizontal>li.active>a, .nav-tabs-horizontal>li.active>a:hover, .nav-tabs-horizontal>li.active>a:focus {
