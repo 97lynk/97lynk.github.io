@@ -112,15 +112,27 @@
 
 
 	<div class="col-sm-2">
-		<ul class="nav nav-tabs-vertical cat-tag-menu">
-			{% for item in (0..site.tags.size) %}{% unless forloop.last %}
-			{% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+		<ul class="nav nav-tabs-horizontal cat-tag-menu">
+			{% assign categories_list = site.categories %}
+			{% if categories_list.first[0] == null %}
+			{% for category in categories_list %}
 			<li>
-				<a href="#{{ this_word | replace:' ','-' }}-ref">
-					{{ this_word }}<span class="badge pull-right">{{ site.tags[this_word].size }}</span>
+				<a href="/categories.html#{{ category | replace:' ','-' }}-ref">
+					{{ category | capitalize }} <span
+						class="badge pull-right">{{ site.categories[category].size }}</span>
 				</a>
 			</li>
-			{% endunless %}{% endfor %}
+			{% endfor %}
+			{% else %}
+			{% for category in categories_list %}
+			<li>
+				<a href="/categories.html#{{ category[0] | replace:' ','-' }}-ref">
+					{{ category[0] | capitalize }} <span class="badge pull-right">{{ category[1].size }}</span>
+				</a>
+			</li>
+			{% endfor %}
+			{% endif %}
+			{% assign categories_list = nil %}
 		</ul>
 	</div>
 

@@ -172,6 +172,27 @@ footer {
     border-radius: 4px 0 0 4px;
 }
 
+/* nav-horizontal-tabs component */
+.nav-tabs-horizontal {
+    /* border-right: 1px solid #ddd; */
+}
+
+.nav-tabs-horizontal li {
+    margin-right: -1px;
+}
+
+.nav-tabs-horizontal>li.active>a, .nav-tabs-horizontal>li.active>a:hover, .nav-tabs-horizontal>li.active>a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+}
+
+.nav-tabs-horizontal>li>a {
+    line-height: 1.428571429;
+    border: 1px solid transparent;
+    border-radius: 4px 0 0 4px;
+}
+
 .badge { background: #159957; }
 
 #nav-menu{
