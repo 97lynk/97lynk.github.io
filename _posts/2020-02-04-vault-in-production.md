@@ -10,11 +10,11 @@ comments: false
 # 1. Run Vault i production mode
 Let's overide Vault using `VAULT_LOCAL_CONFIG` variable with json format
 {% highlight shell %}
-$ docker run --cap-add=IPC_LOCK
-	-p 8200:8200 
-	-e 'VAULT_ADDR=http://127.0.0.1:8200' 
-	-e 'VAULT_LOCAL_CONFIG={"api_addr": "http://127.0.0.1:8200", "listener": [{ "tcp": { "address": "0.0.0.0:8200", "tls_disable": 1 } } ], "storage": { "file": { "path": "/vault/file" } }, "max_lease_ttl": "10h", "default_lease_ttl": "10h", "cluster_name":"testcluster", "ui":true }'
-	--name vault-server-mode 
+$ docker run --cap-add=IPC_LOCK \
+	-p 8200:8200 \
+	-e 'VAULT_ADDR=http://127.0.0.1:8200' \
+	-e 'VAULT_LOCAL_CONFIG={"api_addr": "http://127.0.0.1:8200", "listener": [{ "tcp": { "address": "0.0.0.0:8200", "tls_disable": 1 } } ], "storage": { "file": { "path": "/vault/file" } }, "max_lease_ttl": "10h", "default_lease_ttl": "10h", "cluster_name":"testcluster", "ui":true }' \
+	--name vault-server-mode \
 	vault server
 {% endhighlight %}
 
@@ -39,6 +39,7 @@ $ vault operator init
 {% endhighlight %}
 
 Result look like
+
 ![Initializing Vault](/assets/media/init-vault.png)
 
 ## 2.3. Unsealing
