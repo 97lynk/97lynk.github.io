@@ -27,16 +27,22 @@ Note that:
 
 Testing at <a href="http://localhost:8200/ui" target="_blank">http://localhost:8200/ui</a>
 
-# 2. Unseal
+# 2. Unsealing Vault
 ## 2.1. Access to Vault container
 {% highlight shell %}
 $ docker exec -it vault-server-mode sh
 {% endhighlight %}
 
-## 2.1. Initializing Vault
+## 2.2. Initializing Vault
 {% highlight shell %}
 $ vault operator init
 {% endhighlight %}
 
 Result look like
-![Initializing Vault](/assets/init-vault.png)
+![Initializing Vault](/assets/media/init-vault.png)
+
+## 2.3. Unsealing
+Unseal by 3 unseal key in above
+{% highlight shell %}
+$ vault operator unseal
+{% endhighlight %}
