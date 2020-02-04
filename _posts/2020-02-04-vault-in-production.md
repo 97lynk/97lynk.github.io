@@ -18,7 +18,7 @@ $ docker run --cap-add=IPC_LOCK
 	vault server
 {% endhighlight %}
 
-<a href="https://www.vaultproject.io/docs/configuration/" target="_blank">Vault's documents</a>
+See more details in <a href="https://www.vaultproject.io/docs/configuration/" target="_blank">Vault's documents</a>
 
 Note that:
 * We can configure where store sensitive infomations
