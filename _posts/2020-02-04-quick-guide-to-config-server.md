@@ -8,7 +8,7 @@ comments: false
 ---
 
 # 1. Configuration server
-In distrubuted system, every service has particular config like yml, json, ... Configuration server used for externalizing configuration và centralizing configuration.
+In distrubuted system, every service has particular config like yml, json,... Configuration server used for externalizing configuration và centralizing configuration.
 
 ![Config server](/assets/media/config-server-architecture.png)
 
@@ -37,7 +37,7 @@ In distrubuted system, every service has particular config like yml, json, ... C
 
 ## 2.2. Enabling config server
 Add `@EnableConfigServer` annotation in entrypoint class
-{% highlight java %} 
+{% highlight java %}
 @SpringBootApplication
 @EnableConfigServer
 public class ConfigServer {
@@ -48,14 +48,14 @@ public class ConfigServer {
 {% endhighlight%}
 
 Configure port to start Config server in `application.yml` file
-{% highlight yaml %} 
+{% highlight yaml %}
 server:
   port: 8888
 {% endhighlight%}
 
 ## 2.3. Configure repository to store config files
 In `application.yml` file
-{% highlight yaml %} 
+{% highlight yaml %}
 server.port: 8888
 # fetch config from git
 spring:
