@@ -122,6 +122,6 @@ spring:
       uri: http://localhost:8888
 {% endhighlight %}
 
-With this config, service will get to `http://localhost:8888/client-service/default` then Config Server will look at `https://github.com/john/configs.git` with file name `client-service.yml`
+With this config, service will get to `http://localhost:8888/client-service/default` then Config Server will look at `https://github.com/john/configs.git` with file name `client-service.yml`.
 
 
