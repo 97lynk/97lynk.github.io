@@ -138,7 +138,7 @@ public class SpringRibbonApplication {
     @Autowired
     RestTemplate restTemplate;
 
-    @RequestMapping("/server-location/{service-name}")
+    @RequestMapping("/info/{service-name}")
     public Object serverLocation(@PathVariable("service-name") String serviceName) {
         return this.restTemplate.getForObject(
                 "http://" + serviceName + "/info", Object.class);
@@ -147,4 +147,87 @@ public class SpringRibbonApplication {
 }
 {% endhighlight %}
 
-Testing add <a href="http://localhost:8083/server-location/spring-cloud-eureka-client-1" target="_blank">http://localhost:8083/server-location/spring-cloud-eureka-client-1</a>
+Testing add <a href="http://localhost:8083/info/spring-cloud-eureka-client-1" target="_blank">http://localhost:8083/info/spring-cloud-eureka-client-1</a>
+
+# 3. Ribbon Client with Eureka and Feign
+## 3.1. Dependency
+{% highlight xml %}
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+</dependencies>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+{% endhighlight %}
+
+## 3.2. Configure
+In `application.yml` file:
+{% highlight yaml %}
+spring:
+  application:
+    name: spring-cloud-ribbon
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+{% endhighlight %}
+
+Add a api to demo load balancing
+{% highlight java %}
+@SpringBootApplication
+@RestController
+@EnableFeignClients
+public class SpringRibbonApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringRibbonApplication.class, args);
+    }
+
+    @Autowired
+    private  SpringCloudEurekaClient springCloudEurekaClient;
+
+    @RequestMapping("/info")
+    public Object serverLocation() {
+        return this.springCloudEurekaClient.getInfo();
+    }
+
+    @FeignClient("spring-cloud-eureka-client-1")
+    interface SpringCloudEurekaClient {
+        @RequestMapping(value = "/info", method = GET)
+        Object getInfo();
+    }
+}
+{% endhighlight %}
+
+Testing add <a href="http://localhost:8083/info" target="_blank">http://localhost:8083/info</a>

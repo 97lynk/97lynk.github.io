@@ -52,15 +52,15 @@ Add `@EnableEurekaServer` annotation in entrypoint class.
 ## 3.1. Dependency
 {% highlight xml %}
 <dependencies>
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
+  <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+  </dependency>
 
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+  </dependency>
 </dependencies>
 
 <dependencyManagement>
@@ -76,7 +76,7 @@ Add `@EnableEurekaServer` annotation in entrypoint class.
 </dependencyManagement>
 {% endhighlight %}
 
-# 3.2. Configure
+## 3.2. Configure
 In `bootstrap.xml` file:
 {% highlight yaml %}
 spring:
@@ -103,4 +103,3 @@ Open 3 prompts at this project, run twice `mvnw spring-boot:run` and once `mvnw 
 
 Result
 ![Eureka service with 3 clients](/assets/media/eureka-server.png)
-
