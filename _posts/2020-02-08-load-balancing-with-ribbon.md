@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Load balancing with Spring Cluod Ribbon
+title: Load balancing with Spring Cloud Ribbon
 categories: [cloud, spring]
 tags: [cloud, spring, eureka, netflix, ribbon, load-balance]
 description: Using Spring Cloud Netflix Ribbon to load balance from client.
