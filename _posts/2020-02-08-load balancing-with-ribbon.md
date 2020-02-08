@@ -147,4 +147,4 @@ public class SpringRibbonApplication {
 }
 {% endhighlight %}
 
-Testing add <a href="http://localhost/8083/spring-cloud-eureka-client-1" target="_blank">http://localhost/8083/spring-cloud-eureka-client-1</a>
+Testing add <a href="http://localhost:8083/server-location/spring-cloud-eureka-client-1" target="_blank">http://localhost:8083/server-location/spring-cloud-eureka-client-1</a>
