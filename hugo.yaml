@@ -1,0 +1,38 @@
+baseURL: https://97lynk.github.io/
+languageCode: en-us
+title: Tony's Technical Blogs
+theme: ["PaperMod"]
+markup:
+  defaultMarkdownHandler: goldmark
+params:
+  homeInfoParams:
+    Title: Hi there 👋 I'm Tony Nguyen
+    Content: I'm interested in writing blog about Spring, Microservices, Java, Containers and more
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/97lynk"
+    - name: "stackoverflow"
+      url: "https://stk.so/97lynk"
+    - name: "linkedin"
+      url: "https://linkedin.com/in/97lynk"
+
+  ShowCodeCopyButtons: true
+  ShowPostNavLinks: true
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  cover:
+    responsiveImages: false
+
+menu:
+  main:
+    - identifier: archive
+      name: Archives
+      url: /archives/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+caches:
+  images:
+    dir: :cacheDir/images
