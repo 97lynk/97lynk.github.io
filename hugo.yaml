@@ -36,3 +36,5 @@ menu:
 caches:
   images:
     dir: :cacheDir/images
+
+ignoreErrors: ["error-remote-getjson"]
