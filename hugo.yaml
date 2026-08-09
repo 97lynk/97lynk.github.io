@@ -1,7 +1,7 @@
 baseURL: https://97lynk.github.io/
 languageCode: en-us
 title: Tony's Technical Blogs
-theme: ["github-style"]
+theme: ["github-style-1"]
 
 outputs:
   home: ["html", "json"]
