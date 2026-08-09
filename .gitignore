@@ -1,2 +1,6 @@
 public
 .hugo_build.lock
+_site
+resources/
+.DS_Store
+.idea/
