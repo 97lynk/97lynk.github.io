@@ -1,0 +1,131 @@
+/* =========================================================
+   Custom overrides for hugo-PaperMod
+   Path: assets/css/extended/custom.css
+   Hugo auto-bundles every file under assets/css/extended/,
+   so this loads after the theme's own CSS — no theme edits needed.
+   ========================================================= */
+
+:root {
+  --theme: #ffffff;
+  --entry: #ffffff;
+  --primary: #1b2430;              /* headings / primary text */
+  --secondary: #5b6572;            /* meta text, secondary text */
+  --tertiary: #eef2f7;             /* hover backgrounds, subtle fills */
+  --content: #2a2f36;              /* body text */
+  --hljs-bg: #f6f8fa;              /* code block background (light) */
+  --code-bg: #f6f8fa;              /* inline code background */
+  --border: #e8eaed;
+
+  --accent: #3a7bd5;               /* signature accent — links, tags, active states */
+}
+
+.dark {
+  --theme: #1c2128;
+  --entry: #1c2128;
+  --primary: #e8ecf1;
+  --secondary: #838fa0;
+  --tertiary: #262d37;
+  --content: #d6dce3;
+  --hljs-bg: #161b22;
+  --code-bg: #161b22;
+  --border: #2c333d;
+
+  --accent: #5b9bf0;
+}
+
+/* ---- Links & accent ---- */
+a {
+  color: var(--accent);
+}
+.post-content a {
+  border-bottom: 1px solid var(--accent);
+  text-decoration: none;
+}
+.post-content a:hover {
+  opacity: 0.8;
+}
+
+/* ---- Header nav active state ---- */
+.nav a.active,
+#menu a.active {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+/* ---- Post list entries: quiet card with accent-on-hover left border ---- */
+.post-entry,
+.first-entry {
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+  transition: border-left-color 0.15s ease, transform 0.1s ease;
+}
+.post-entry:hover,
+.first-entry:hover {
+  border-left-color: var(--accent);
+}
+
+/* ---- Tags: pill badges instead of default plain-text list ---- */
+ul.terms-tags li a,
+.entry-tag {
+  background: var(--tertiary);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* ---- Code blocks ---- */
+.post-content pre,
+.post-content code {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.post-content pre {
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.post-content :not(pre) > code {
+  border: none;
+  padding: 2px 6px;
+  color: #c0392b;
+}
+.dark .post-content :not(pre) > code {
+  color: #ff9f7f;
+}
+
+/* ---- Copy-code button: recolor to match accent instead of default ---- */
+.copy-code {
+  background: var(--tertiary) !important;
+  color: var(--accent) !important;
+  border: none !important;
+}
+
+/* ---- Callout-style blockquote (use > in markdown for tips/warnings) ---- */
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--tertiary);
+  padding: 12px 16px;
+  border-radius: 0 6px 6px 0;
+  margin: 20px 0;
+  font-size: 14.5px;
+}
+
+/* ---- Reading-time / meta row: tighten spacing, quieter tone ---- */
+.post-meta {
+  color: var(--secondary);
+  font-size: 12.5px;
+}
+
+/* ---- Table of contents (if enabled) ---- */
+.toc {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--entry);
+}
+.toc-content li a:hover,
+.toc-content li a.active {
+  color: var(--accent);
+}
